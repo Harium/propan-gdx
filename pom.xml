@@ -64,6 +64,9 @@
                         </configuration>
                     </execution>
                 </executions>
+                <configuration>
+                    <finalName>propan-gdx-backend-${project.version}</finalName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
