@@ -1,7 +1,7 @@
 package com.harium.propan;
 
 import com.harium.etyl.DesktopEngine;
-import com.harium.etyl.Engine;
+import com.harium.etyl.core.Engine;
 import com.harium.etyl.loader.FontLoader;
 import com.harium.etyl.loader.MultimediaLoader;
 import com.harium.etyl.loader.image.ImageLoader;
