@@ -13,7 +13,7 @@
         <dependency>
             <groupId>com.harium</groupId>
             <artifactId>etyl-commons</artifactId>
-            <version>1.0.8</version>
+            <version>1.0.9</version>
         </dependency>
         <dependency>
             <groupId>com.harium.etyl</groupId>
@@ -33,7 +33,7 @@
         <dependency>
             <groupId>com.harium.propan</groupId>
             <artifactId>propan-gdx-jogl-backend</artifactId>
-            <version>${libgdx.version}.1</version>
+            <version>${libgdx.version}.2</version>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
