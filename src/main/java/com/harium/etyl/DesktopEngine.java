@@ -1,18 +1,18 @@
 package com.harium.etyl;
 
-import com.badlogic.gdx.backends.jogamp.JoglAwtApplication;
-import com.badlogic.gdx.backends.jogamp.JoglAwtApplicationConfiguration;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplication;
+import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.harium.etyl.core.Core;
 import com.harium.etyl.ui.GDXWindow;
 
-public abstract class DesktopEngine {
+public abstract class DesktopEngine<T extends Core> {
 
     protected int w;
     protected int h;
     protected String icon;
 
     protected Core core;
-    private JoglAwtApplicationConfiguration configuration;
+    private LwjglApplicationConfiguration configuration;
 
     public DesktopEngine(int w, int h) {
         super();
@@ -29,7 +29,7 @@ public abstract class DesktopEngine {
         configuration.width = w;
         configuration.height = h;
 
-        new JoglAwtApplication(core, configuration);
+        new LwjglApplication(core, configuration);
     }
 
     protected Core initCore() {
@@ -40,8 +40,8 @@ public abstract class DesktopEngine {
         return core;
     }
 
-    protected JoglAwtApplicationConfiguration buildConfiguration() {
-        return new JoglAwtApplicationConfiguration();
+    protected LwjglApplicationConfiguration buildConfiguration() {
+        return new LwjglApplicationConfiguration();
     }
 
     public void setTitle(String title) {
