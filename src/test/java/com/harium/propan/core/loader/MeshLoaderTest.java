@@ -1,7 +1,7 @@
 package com.harium.propan.core.loader;
 
+import com.badlogic.gdx.backends.lwjgl.GdxTestHelper;
 import com.badlogic.gdx.graphics.g3d.Model;
-import com.harium.propan.GdxTestHelper;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;

@@ -1,20 +1,18 @@
-package com.harium.propan;
+package com.badlogic.gdx.backends.lwjgl;
 
 import com.badlogic.gdx.ApplicationListener;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.backends.jogamp.JoglAwtApplication;
-import com.badlogic.gdx.backends.jogamp.JoglFiles;
-import com.badlogic.gdx.backends.jogamp.JoglGL20;
-import com.badlogic.gdx.backends.jogamp.JoglGL30;
 import com.badlogic.gdx.utils.GdxNativesLoader;
 import com.harium.etyl.util.PathHelper;
 import com.harium.propan.core.loader.MeshLoader;
+import org.lwjgl.LWJGLException;
+import org.lwjgl.opengl.GLContext;
 
 public class GdxTestHelper {
 
     private static boolean loaded = false;
 
-    private static JoglAwtApplication application;
+    private static LwjglApplication application;
 
     public static void dispose() {
         // Attempt to close the frame
@@ -34,14 +32,13 @@ public class GdxTestHelper {
         // Init Gdx
         GdxNativesLoader.load();
 
-        application = new JoglAwtApplication(APPLICATION_LISTENER, "Test Window", 200, 60);
-        application.getGLCanvas().getContext().makeCurrent();
+        application = new LwjglApplication(APPLICATION_LISTENER, "Test Window", 200, 60);
 
         Gdx.app = application;
-        Gdx.gl20 = new JoglGL20();
-        Gdx.gl30 = new JoglGL30();
+        Gdx.gl20 = new LwjglGL20();
+        Gdx.gl30 = new LwjglGL30();
         Gdx.gl = Gdx.gl20;
-        Gdx.files = new JoglFiles();
+        Gdx.files = application.getFiles();
     }
 
     private static final ApplicationListener APPLICATION_LISTENER = new ApplicationListener() {

@@ -31,9 +31,9 @@
             <version>0.0.1</version>
         </dependency>
         <dependency>
-            <groupId>com.harium.propan</groupId>
-            <artifactId>propan-gdx-jogl-backend</artifactId>
-            <version>${libgdx.version}.2</version>
+            <groupId>com.badlogicgames.gdx</groupId>
+            <artifactId>gdx-backend-lwjgl</artifactId>
+            <version>1.9.7</version>
         </dependency>
         <dependency>
             <groupId>com.badlogicgames.gdx</groupId>
