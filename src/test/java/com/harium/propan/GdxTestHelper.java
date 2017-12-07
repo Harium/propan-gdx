@@ -10,8 +10,6 @@ import com.badlogic.gdx.utils.GdxNativesLoader;
 import com.harium.etyl.util.PathHelper;
 import com.harium.propan.core.loader.MeshLoader;
 
-import java.awt.event.WindowEvent;
-
 public class GdxTestHelper {
 
     private static boolean loaded = false;
@@ -20,7 +18,7 @@ public class GdxTestHelper {
 
     public static void dispose() {
         // Attempt to close the frame
-        application.getFrame().dispatchEvent(new WindowEvent(application.getFrame(), WindowEvent.WINDOW_CLOSING));
+        Gdx.app.exit();
     }
 
     public static void init() {
@@ -39,6 +37,7 @@ public class GdxTestHelper {
         application = new JoglAwtApplication(APPLICATION_LISTENER, "Test Window", 200, 60);
         application.getGLCanvas().getContext().makeCurrent();
 
+        Gdx.app = application;
         Gdx.gl20 = new JoglGL20();
         Gdx.gl30 = new JoglGL30();
         Gdx.gl = Gdx.gl20;

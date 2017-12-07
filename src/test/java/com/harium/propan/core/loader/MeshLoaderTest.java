@@ -2,7 +2,6 @@ package com.harium.propan.core.loader;
 
 import com.badlogic.gdx.graphics.g3d.Model;
 import com.harium.propan.GdxTestHelper;
-import com.jogamp.opengl.GLContext;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
