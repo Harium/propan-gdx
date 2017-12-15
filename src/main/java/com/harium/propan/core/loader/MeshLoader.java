@@ -37,7 +37,7 @@ public class MeshLoader extends Loader {
     public Model loadModel(String path) {
         String extension = PathHelper.getExtension(path).toLowerCase();
         ModelLoader loader = loaders.get(extension);
-        return loader.loadModel(Gdx.files.internal(getFolder() + path));
+        return loader.loadModel(Gdx.files.internal(fullPath() + path));
     }
 
     public ModelLoader getLoader(String extension) {
