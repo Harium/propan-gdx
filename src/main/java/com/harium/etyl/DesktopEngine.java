@@ -67,7 +67,9 @@ public abstract class DesktopEngine<T extends Core> {
     }
 
     protected LwjglApplicationConfiguration buildConfiguration() {
-        return new LwjglApplicationConfiguration();
+        LwjglApplicationConfiguration configuration = new LwjglApplicationConfiguration();
+        configuration.vSyncEnabled = true;
+        return configuration;
     }
 
     public void setTitle(String title) {
