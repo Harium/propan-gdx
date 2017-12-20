@@ -84,6 +84,7 @@ public class CoreGL extends Core<ApplicationGL> {
 
         //Force load the loading screen
         loadContext.setSession(session);
+        loadContext.setCamera(orthoCamera);
         loadContext.load();
 
         assetManager.finishLoading();
@@ -135,7 +136,12 @@ public class CoreGL extends Core<ApplicationGL> {
                 Gdx.app.postRunnable(new Runnable() {
                     @Override
                     public void run() {
-                        ((ApplicationGL) application).init(graphics3D);
+
+                        ApplicationGL applicationGL = (ApplicationGL) application;
+                        applicationGL.init(graphics3D);
+                        if (applicationGL.getCamera() == null) {
+                            applicationGL.setCamera(orthoCamera);
+                        }
                         loadingGL = false;
                     }
                 });
