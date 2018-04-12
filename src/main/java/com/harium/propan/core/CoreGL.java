@@ -5,14 +5,14 @@ import com.badlogic.gdx.graphics.GL20;
 import com.harium.etyl.commons.context.Context;
 import com.harium.etyl.commons.context.load.GenericLoadApplication;
 import com.harium.etyl.commons.context.load.LoadApplication;
-import com.harium.etyl.core.Core;
+import com.harium.etyl.core.GDXCore;
 import com.harium.propan.commons.context.application.DefaultLoadApplicationGL;
 import com.harium.propan.commons.context.application.LoadApplicationGLAdapter;
 import com.harium.propan.core.context.ApplicationGL;
 import com.harium.propan.gdx.GDX3DGraphics;
 
 
-public class CoreGL extends Core<ApplicationGL> {
+public class CoreGL extends GDXCore<ApplicationGL> {
 
     protected GDX3DGraphics graphics3D;
     protected DefaultLoadApplicationGL loadContext;
@@ -82,11 +82,12 @@ public class CoreGL extends Core<ApplicationGL> {
             }
         }
 
-        //Force load the loading screen
+        // Force load the loading screen
         loadContext.setSession(session);
         loadContext.setCamera(orthoCamera);
         loadContext.load();
 
+        // Assync load
         assetManager.finishLoading();
         assetManager.checkResources();
 

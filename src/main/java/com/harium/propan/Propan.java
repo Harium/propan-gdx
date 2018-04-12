@@ -1,7 +1,6 @@
 package com.harium.propan;
 
-import com.harium.etyl.DesktopEngine;
-import com.harium.etyl.core.Core;
+import com.harium.etyl.BaseEngine;
 import com.harium.etyl.core.Engine;
 import com.harium.etyl.loader.FontLoader;
 import com.harium.etyl.loader.MultimediaLoader;
@@ -10,7 +9,7 @@ import com.harium.propan.core.CoreGL;
 import com.harium.propan.core.context.ApplicationGL;
 import com.harium.propan.core.loader.MeshLoader;
 
-public abstract class Propan extends DesktopEngine<CoreGL> implements Engine<ApplicationGL> {
+public abstract class Propan extends BaseEngine<CoreGL> implements Engine<ApplicationGL> {
 
     private ApplicationGL application;
 
@@ -32,7 +31,7 @@ public abstract class Propan extends DesktopEngine<CoreGL> implements Engine<App
         super.init();
     }
 
-    protected Core initCore() {
+    protected CoreGL initCore() {
         return new CoreGL(w, h);
     }
 

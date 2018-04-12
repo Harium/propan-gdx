@@ -22,7 +22,7 @@ public class MeshLoaderTest {
     }
 
     @Test
-    public void init() {
+    public void testInit() {
         Assert.assertNotNull(MeshLoader.getInstance());
     }
 
@@ -46,6 +46,7 @@ public class MeshLoaderTest {
     public void testLoaderWithRightPath() {
         Model model = MeshLoader.getInstance().loadModel("stone/stone.obj");
         Assert.assertNotNull(model);
+        Assert.assertEquals(456, model.meshParts.first().mesh.getNumVertices());
     }
 
 }
