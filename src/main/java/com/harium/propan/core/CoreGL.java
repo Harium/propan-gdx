@@ -48,7 +48,11 @@ public class CoreGL extends GDXCore<ApplicationGL> {
         ApplicationGL applicationGL = ((ApplicationGL) context);
 
         if (applicationGL.isClearBeforeDraw()) {
-            Gdx.gl.glClearColor(0, 0, 0, 1);
+            float r = ((applicationGL.getBackgroundColor() >> 16) & 0xff) / 0xff;
+            float g = ((applicationGL.getBackgroundColor() >> 8) & 0xff) / 0xff;
+            float b = ((applicationGL.getBackgroundColor()) & 0xff) / 0xff;
+
+            Gdx.gl.glClearColor(r, g, b, 1);
             Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT | GL20.GL_DEPTH_BUFFER_BIT);
         }
 

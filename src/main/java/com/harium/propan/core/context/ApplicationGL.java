@@ -19,15 +19,16 @@ import com.harium.propan.core.graphics.Graphics3D;
 
 public abstract class ApplicationGL extends Context implements PropanApplication {
 
-    private static final float DEFAULT_FOV = 90f;
     protected Ray ray;
     protected Camera camera;
     protected Vector3 forwardVector = new Vector3();
-    private DefaultLoadApplicationGL loadApplicationGL;
-    Vector3 worldCoords = new Vector3();
+    protected DefaultLoadApplicationGL loadApplicationGL;
+    private Vector3 worldCoords = new Vector3();
 
     public ApplicationGL(int w, int h) {
         super(w, h);
+        // clear calls should be handled by default
+        clearBeforeDraw = false;
     }
 
     protected boolean shouldPreDrawing = true;
