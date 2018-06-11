@@ -6,20 +6,20 @@ import com.harium.etyl.commons.event.KeyEvent;
 
 public class FlyView {
 
-    private Camera camera;
+    protected Camera camera;
 
-    private float speed = 0.5f;
-    private float turnSpeed = 1f;
+    protected float speed = 0.5f;
+    protected float turnSpeed = 1f;
 
-    private boolean up = false;
-    private boolean down = false;
-    private boolean left = false;
-    private boolean right = false;
+    protected boolean up = false;
+    protected boolean down = false;
+    protected boolean left = false;
+    protected boolean right = false;
 
-    private boolean forward = false;
-    private boolean backward = false;
-    private boolean turnLeft = false;
-    private boolean turnRight = false;
+    protected boolean forward = false;
+    protected boolean backward = false;
+    protected boolean turnLeft = false;
+    protected boolean turnRight = false;
 
     public FlyView(Camera camera) {
         this.camera = camera;
