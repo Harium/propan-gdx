@@ -22,8 +22,8 @@ public class ScaleUniform3D extends SingleIntervalAnimation {
     }
 
     @Override
-    public void update(double value) {
-        Vector3 scale = new Vector3((float) value, (float) value, (float) value);
+    public void update(float value) {
+        Vector3 scale = new Vector3(value, value, value);
         target.transform.scl(scale);
     }
 }
