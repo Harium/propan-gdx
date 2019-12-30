@@ -102,7 +102,7 @@ public class GdxTestHelper {
         }
 
         @Override
-        void mainLoop() {
+        public void mainLoop() {
         }
 
         private static final ApplicationListener APPLICATION_LISTENER = new ApplicationListener() {
