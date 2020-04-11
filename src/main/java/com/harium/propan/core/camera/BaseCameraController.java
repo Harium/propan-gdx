@@ -34,65 +34,73 @@ public abstract class BaseCameraController implements CameraController {
 
     public void update(long now) {
         if (right) {
-            Vector3 right = new Vector3(camera.direction).crs(camera.up).nor();
-            right.scl(speed);
-            camera.position.add(right);
-            camera.update();
+            strafe(speed);
         }
 
         if (left) {
-            Vector3 left = new Vector3(camera.direction).crs(camera.up).nor();
-            left.scl(-speed);
-            camera.position.add(left);
-            camera.update();
+            strafe(-speed);
         }
 
         if (forward) {
-            Vector3 forward = new Vector3(camera.direction).nor();
-            forward.scl(speed);
-            camera.position.add(forward);
-            camera.update();
+            moveAhead(speed);
         }
 
         if (backward) {
-            Vector3 backward = new Vector3(camera.direction).nor();
-            backward.scl(-speed);
-            camera.position.add(backward);
-            camera.update();
+            moveAhead(-speed);
         }
 
         if (turnRight) {
-            camera.direction.rotate(camera.up, -turnSpeed);
-            camera.update();
+            turnYaw(-turnSpeed);
         }
         if (turnLeft) {
-            camera.direction.rotate(camera.up, turnSpeed);
-            camera.update();
+            turnYaw(turnSpeed);
         }
         if (turnUp) {
-            Vector3 sideAxis = new Vector3(camera.direction).crs(camera.up).nor();
-            camera.direction.rotate(sideAxis, turnSpeed);
-            camera.update();
+            turnPitch(turnSpeed);
         }
         if (turnDown) {
-            Vector3 sideAxis = new Vector3(camera.direction).crs(camera.up).nor();
-            camera.direction.rotate(sideAxis, -turnSpeed);
-            camera.update();
+            turnPitch(-turnSpeed);
         }
 
         if (fly) {
-            Vector3 direction = new Vector3(camera.up).nor();
-            direction.scl(speed);
-            camera.position.add(direction);
-            camera.update();
+            moveUp(speed);
         }
 
         if (dive) {
-            Vector3 direction = new Vector3(camera.up).nor();
-            direction.scl(-speed);
-            camera.position.add(direction);
-            camera.update();
+            moveUp(-speed);
         }
+    }
+
+    public void strafe(float amount) {
+        Vector3 right = new Vector3(camera.direction).crs(camera.up).nor();
+        right.scl(amount);
+        camera.position.add(right);
+        camera.update();
+    }
+
+    public void moveUp(float amount) {
+        Vector3 direction = new Vector3(camera.up).nor();
+        direction.scl(amount);
+        camera.position.add(direction);
+        camera.update();
+    }
+
+    public void turnPitch(float degrees) {
+        Vector3 sideAxis = new Vector3(camera.direction).crs(camera.up).nor();
+        camera.direction.rotate(sideAxis, degrees);
+        camera.update();
+    }
+
+    public void turnYaw(float degrees) {
+        camera.direction.rotate(camera.up, degrees);
+        camera.update();
+    }
+
+    public void moveAhead(float amount) {
+        Vector3 backward = new Vector3(camera.direction).nor();
+        backward.scl(amount);
+        camera.position.add(backward);
+        camera.update();
     }
 
     public float getSpeed() {
