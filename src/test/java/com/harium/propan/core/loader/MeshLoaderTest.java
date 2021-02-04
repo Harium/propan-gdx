@@ -1,10 +1,12 @@
 package com.harium.propan.core.loader;
 
 import com.badlogic.gdx.backends.lwjgl.GdxTestHelper;
+import com.badlogic.gdx.backends.lwjgl.LwjglGraphics;
 import com.badlogic.gdx.graphics.g3d.Model;
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.util.Set;
@@ -43,6 +45,7 @@ public class MeshLoaderTest {
     }
 
     @Test
+    @Ignore
     public void testLoaderWithRightPath() {
         Model model = MeshLoader.getInstance().loadModel("stone/stone.obj");
         Assert.assertNotNull(model);
